@@ -1,0 +1,112 @@
+/* src/components/home/Collections.module.css */
+:root {
+    --text-color: #FFFEEB;
+    --font-family: 'Playfair Display', serif;
+    --overlay-black: rgba(0, 0, 0, 0.18);
+}
+
+/* Base layout styles */
+.collections {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Collection item base styles */
+.collectionItem {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    /* Remove background-attachment: scroll as it's default */
+    overflow: hidden;
+    /* Use transform: translate3d for better performance */
+    transform: translate3d(0, 0, 0);
+}
+
+/* Overlay gradient */
+.collectionItem::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* Shorthand for top, right, bottom, left */
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.45) 100%);
+    z-index: 1;
+}
+
+/* Content wrapper */
+.collectionContent {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.collectionContent span {
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: clamp(60px, 8vw, 110px); /* Responsive font size */
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    text-align: center;
+}
+
+/* Collection-specific layouts */
+.boston,
+.madrid {
+    justify-content: flex-start;
+}
+
+.montmelo,
+.other {
+    justify-content: flex-end;
+}
+
+.boston { padding-right: 50%; }
+.montmelo { padding-left: 35%; }
+.madrid { padding-right: 40%; }
+.other { padding-left: 50%; }
+
+/* Hero section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    min-height: 826px;
+    padding-top: 100px;
+    width: 100%;
+    background: 
+        radial-gradient(50% 50% at 50% 50%, var(--overlay-black), var(--overlay-black)),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.14)),
+        url('/src/assets/images/Home/Myself_main.jpg') center/cover no-repeat;
+}
+
+.introText {
+    color: var(--text-color);
+    width: 70%;
+    padding-left: 10%;
+    text-align: left;
+    font-family: var(--font-family);
+    font-size: clamp(32px, 4vw, 48px); /* Responsive font size */
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.029em;
+    margin: 9% 0 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    will-change: opacity;
+}
+
+.fadeIn {
+    opacity: 1;
+}

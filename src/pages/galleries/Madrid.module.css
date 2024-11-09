@@ -1,0 +1,130 @@
+/* src/pages/galleries/Madrid.module.css */
+.galleryWrapper {
+    background-color: #FFFEEB;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 85px;
+}
+
+.contentWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.titleWrapper .madridTitle {
+    width: 247px;
+    height: 84px;
+    color: #000;
+    font-family: 'Playfair Display', serif;
+    font-size: 57px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.71px;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0 auto 10px auto;
+}
+
+.quoteWrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.quote {
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.36px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.author {
+    display: block;
+    margin-top: 5px;
+    text-align: left;
+    font-size: 18px;
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    padding-left: 80px;
+}
+
+.photos {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+    max-width: 1350px;
+    padding: 50px 20px 0;
+    gap: 20px;
+}
+
+.col1, 
+.col2, 
+.col3 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photos img {
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.photos img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .photos {
+        max-width: 100%;
+        padding: 50px 10px 0;
+    }
+
+    .author {
+        margin-left: 0;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .photos {
+        flex-direction: column;
+    }
+
+    .col1, 
+    .col2, 
+    .col3 {
+        width: 100%;
+    }
+
+    .titleWrapper .madridTitle {
+        font-size: 40px;
+        width: auto;
+        height: auto;
+    }
+
+    .quoteWrapper {
+        padding: 0 20px;
+    }
+
+    .quote {
+        font-size: 16px;
+    }
+
+    .author {
+        font-size: 16px;
+        padding-right: 0;
+    }
+}
