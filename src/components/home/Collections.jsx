@@ -1,11 +1,10 @@
-// src/components/home/Collections.jsx
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Collections.module.css';
 
 // Import images
 import bostonImg from '../../assets/images/Home/Skyline_main.jpeg';
-import montmeloImg from '../../assets/images/Home/Straight_main.jpeg';
+import montmeloImg from '../../assets/images/Montmelo/F1_2.jpeg';
 import madridImg from '../../assets/images/Home/Cibeles_main.jpg';
 import otherImg from '../../assets/images/Home/museo_2_main.jpeg';
 
@@ -31,14 +30,15 @@ export default function Collections() {
 
     const initialOffsets = {
         boston: 40,    // Centered
-        montmelo: 47,  // Slightly higher
+        montmelo: 40,  // Slightly higher
         madrid: 20,    // Slightly lower
         other: 45      // Centered
     };
 
     const speedFactors = {
-        landscape: 0.08, // Speed factor for landscape images
-        portrait: 0.1   // Speed factor for portrait images
+        landscape: 0.08,    // Speed factor for landscape images
+        portrait: 0.1,      // Speed factor for portrait images
+        formula_one: 0.3   // Faster speed factor for Formula One image
     };
 
     function parallaxEffect() {
@@ -56,10 +56,15 @@ export default function Collections() {
                 );
                 const initialOffsetY = initialOffsets[itemId] || 50;
 
-                // Determine the speed factor based on image orientation
-                const speedFactor = (itemId === 'montmelo' || itemId === 'other') 
-                    ? speedFactors.landscape 
-                    : speedFactors.portrait;
+                // Determine the speed factor based on image type
+                let speedFactor;
+                if (itemId === 'montmelo') {
+                    speedFactor = speedFactors.formula_one;
+                } else if (itemId === 'other') {
+                    speedFactor = speedFactors.landscape;
+                } else {
+                    speedFactor = speedFactors.portrait;
+                }
 
                 // Calculate percentage of visibility
                 const scrollPercentage = (offset - (rect.top - viewportHeight)) / 

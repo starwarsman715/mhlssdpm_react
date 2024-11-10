@@ -14,7 +14,8 @@ import Contact from './pages/Contact';
 // Gallery Pages
 import Boston from './pages/galleries/Boston';
 import Madrid from './pages/galleries/Madrid';
-
+import Montmelo from './pages/galleries/Montmelo';
+import Other from './pages/galleries/Other';
 
 // Styles
 import './styles/globals.css';
@@ -64,7 +65,8 @@ function App() {
             {/* Gallery Routes */}
             <Route path="/boston" element={<Boston />} />
             <Route path="/madrid" element={<Madrid />} />
-
+            <Route path="/montmelo" element={<Montmelo />} />
+            <Route path="/other" element={<Other />} />
           </Routes>
         </main>
         <Footer />

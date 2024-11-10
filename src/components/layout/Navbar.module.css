@@ -53,3 +53,112 @@
     color: #666666;
 }
 
+/* Menu button styles */
+.menuButton {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    z-index: 1001;
+}
+
+.menuIcon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #FFFEEB;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.darkNavbar .menuIcon {
+    background-color: #1B1B1B;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background-color: #FFFEEB;
+    transition: transform 0.3s;
+}
+
+.darkNavbar .menuIcon::before,
+.darkNavbar .menuIcon::after {
+    background-color: #1B1B1B;
+}
+
+.menuIcon::before {
+    top: -8px;
+}
+
+.menuIcon::after {
+    bottom: -8px;
+}
+
+/* Mobile menu styles */
+@media (max-width: 1023px) {
+    .navbar {
+        padding: 20px 30px;
+    }
+
+    .logoLink {
+        width: 120px;
+        height: 89px;
+    }
+
+    .menuButton {
+        display: block;
+    }
+
+    .navLinks {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 254, 235, 0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+    }
+
+    .menuOpen .navLinks {
+        right: 0;
+    }
+
+    .menuOpen .menuIcon {
+        background-color: transparent;
+    }
+
+    .menuOpen .menuIcon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menuOpen .menuIcon::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+
+    .navLink {
+        color: #1B1B1B !important;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .logoLink {
+        width: 100px;
+        height: 74px;
+    }
+}
