@@ -4,41 +4,64 @@ import Lightbox from '../../components/gallery/Lightbox';
 import styles from './Madrid.module.css';
 
 // Import all images
+import imgFuck1 from '@/assets/images/Madrid/Fuck_1.jpeg';
+import imgArbol2 from '@/assets/images/Madrid/Arbol2.jpeg';
+import imgCamel from '@/assets/images/Madrid/Camel.jpeg';
+import imgCar from '@/assets/images/Madrid/car.jpeg';
+import imgCibeles from '@/assets/images/Madrid/Cibeles.jpeg';
+import imgColumna from '@/assets/images/Madrid/columna.jpeg';
+import imgTim3 from '@/assets/images/Madrid/Tim_3.jpeg';
+import imgHotel from '@/assets/images/Madrid/hotel.jpeg';
+import imgAlacala2 from '@/assets/images/Madrid/Alacala_2.jpeg';
+import imgAlcala from '@/assets/images/Madrid/Alcala.jpeg';
+import imgGranVia from '@/assets/images/Madrid/Gran_via.jpeg';
+import imgFuck3 from '@/assets/images/Madrid/Fuck_3.jpeg';
+import imgGroup3 from '@/assets/images/Madrid/Group_3.jpeg';
+import imgHaider1 from '@/assets/images/Madrid/Haider_1.jpeg';
+import imgHotel2 from '@/assets/images/Madrid/hotel_2.jpeg';
+import imgJeep from '@/assets/images/Madrid/Jeep.jpeg';
+import imgJustin1 from '@/assets/images/Madrid/Justin_1.jpeg';
+import imgKim1 from '@/assets/images/Madrid/Kim_1.jpeg';
+import imgMetropolis from '@/assets/images/Madrid/Metropolis.jpeg';
+import imgMetropolis2 from '@/assets/images/Madrid/Metropolis_2.jpeg';
+import imgMyself from '@/assets/images/Madrid/Myself.jpeg';
+import imgStreet1 from '@/assets/images/Madrid/street1.jpeg';
+
+// Organize images into columns
 const images = {
   col1: [
-    '/src/assets/images/Madrid/Fuck_1.jpeg',
-    '/src/assets/images/Madrid/Arbol2.jpeg',
-    '/src/assets/images/Madrid/Camel.jpeg',
-    '/src/assets/images/Madrid/car.jpeg',
-    '/src/assets/images/Madrid/Cibeles.jpeg',
-    '/src/assets/images/Madrid/columna.jpeg',
-    '/src/assets/images/Madrid/Tim_3.jpeg',
-    '/src/assets/images/Madrid/hotel.jpeg'
+    imgFuck1,
+    imgArbol2,
+    imgCamel,
+    imgCar,
+    imgCibeles,
+    imgColumna,
+    imgTim3,
+    imgHotel
   ],
   col2: [
-    '/src/assets/images/Madrid/Alacala_2.jpeg',
-    '/src/assets/images/Madrid/Alcala.jpeg',
-    '/src/assets/images/Madrid/Gran_via.jpeg',
-    '/src/assets/images/Madrid/Fuck_3.jpeg',
-    '/src/assets/images/Madrid/Group_3.jpeg',
-    '/src/assets/images/Madrid/Haider_1.jpeg',
-    '/src/assets/images/Madrid/hotel_2.jpeg'
+    imgAlacala2,
+    imgAlcala,
+    imgGranVia,
+    imgFuck3,
+    imgGroup3,
+    imgHaider1,
+    imgHotel2
   ],
   col3: [
-    '/src/assets/images/Madrid/Jeep.jpeg',
-    '/src/assets/images/Madrid/Justin_1.jpeg',
-    '/src/assets/images/Madrid/Kim_1.jpeg',
-    '/src/assets/images/Madrid/Metropolis.jpeg',
-    '/src/assets/images/Madrid/Metropolis_2.jpeg',
-    '/src/assets/images/Madrid/Myself.jpeg',
-    '/src/assets/images/Madrid/street1.jpeg'
+    imgJeep,
+    imgJustin1,
+    imgKim1,
+    imgMetropolis,
+    imgMetropolis2,
+    imgMyself,
+    imgStreet1
   ]
 };
 
 export default function Madrid() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState('');
-    // eslint-disable-next-line no-unused-vars
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Flatten the images array for lightbox navigation
@@ -100,7 +123,7 @@ export default function Madrid() {
         
         <div className={styles.quoteWrapper}>
           <p className={styles.quote}>
-             &quot;I have never been to a city, where there is less reason to go to bed,
+            &quot;I have never been to a city, where there is less reason to go to bed,
             and If I did go to bed, to sleep&quot;
             <span className={styles.author}>- Ernest Hemingway</span>
           </p>
@@ -115,6 +138,7 @@ export default function Madrid() {
               src={src}
               alt={`Madrid ${index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -126,6 +150,7 @@ export default function Madrid() {
               src={src}
               alt={`Madrid ${images.col1.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -137,6 +162,7 @@ export default function Madrid() {
               src={src}
               alt={`Madrid ${images.col1.length + images.col2.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>

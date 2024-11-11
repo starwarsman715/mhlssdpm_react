@@ -3,59 +3,99 @@ import { useState, useEffect, useCallback } from 'react';
 import Lightbox from '../../components/gallery/Lightbox';
 import styles from './Boston.module.css';
 
-// Import all images
+// Import all images properly
+import img911 from '@/assets/images/Boston/911.jpeg';
+import imgBay from '@/assets/images/Boston/Bay.jpeg';
+import imgBridge from '@/assets/images/Boston/Bridge.jpeg';
+import imgCDS from '@/assets/images/Boston/CDS.jpeg';
+import imgCDS2 from '@/assets/images/Boston/CDS_2.jpeg';
+import imgChurchTower from '@/assets/images/Boston/Church_Tower.jpeg';
+import imgCitgo from '@/assets/images/Boston/Citgo.jpeg';
+import imgCommAve from '@/assets/images/Boston/Comm_Ave.jpeg';
+import imgDisco from '@/assets/images/Boston/Disco.jpeg';
+import imgDSCF33090 from '@/assets/images/Boston/DSCF33090.jpeg';
+import imgEsta from '@/assets/images/Boston/Esta.jpeg';
+import imgFabrik from '@/assets/images/Boston/Fabrik.jpeg';
+import imgFlowerPower from '@/assets/images/Boston/Flower_Power.jpeg';
+import imgGriego2 from '@/assets/images/Boston/Griego_2.jpeg';
+import imgIglesia from '@/assets/images/Boston/Iglesia.jpeg';
+import imgKhan2 from '@/assets/images/Boston/Khan_2.jpeg';
+import imgKhan from '@/assets/images/Boston/Khan.jpeg';
+import imgKimi from '@/assets/images/Boston/Kimi.jpeg';
+import imgMarro3 from '@/assets/images/Boston/Marro_3.jpeg';
+import imgMarro from '@/assets/images/Boston/Marro.jpeg';
+import imgMartina2 from '@/assets/images/Boston/Martina_2.jpeg';
+import imgPrimeraChamba from '@/assets/images/Boston/Mi_primera_chamba.jpeg';
+import imgMirror from '@/assets/images/Boston/Mirror.jpeg';
+import imgMuseo1 from '@/assets/images/Boston/museo_1.jpeg';
+import imgFriendship2 from '@/assets/images/Boston/Friendship_2.jpeg';
+import imgNightTrip from '@/assets/images/Boston/Night_trip.jpeg';
+import imgPanas from '@/assets/images/Boston/Panas.jpeg';
+import imgPlanta1 from '@/assets/images/Boston/Planta_1.jpeg';
+import imgPrudential from '@/assets/images/Boston/Prudential.jpeg';
+import imgPrudi from '@/assets/images/Boston/Prudi.jpeg';
+import imgRealismoMagico from '@/assets/images/Boston/Realismo_magico.jpeg';
+import imgRoad from '@/assets/images/Boston/Road.jpeg';
+import imgSemi2 from '@/assets/images/Boston/Semi_2.jpeg';
+import imgSkyline from '@/assets/images/Boston/Skyline.jpeg';
+import imgSMH from '@/assets/images/Boston/SMH.jpeg';
+import imgSunset from '@/assets/images/Boston/Sunset.jpeg';
+import imgThomas from '@/assets/images/Boston/Thomas.jpeg';
+import imgWallpaper from '@/assets/images/Boston/Wallpaper.jpeg';
+import imgMuseo2 from '@/assets/images/Boston/museo_2.jpeg';
+
+// Organize images into columns
 const images = {
   col1: [
-    '/src/assets/images/Boston/911.jpeg',
-    '/src/assets/images/Boston/Bay.jpeg',
-    '/src/assets/images/Boston/Bridge.jpeg',
-    '/src/assets/images/Boston/CDS.jpeg',
-    '/src/assets/images/Boston/CDS_2.jpeg',
-    '/src/assets/images/Boston/Church_Tower.jpeg',
-    '/src/assets/images/Boston/Citgo.jpeg',
-    '/src/assets/images/Boston/Comm_Ave.jpeg',
-    '/src/assets/images/Boston/Disco.jpeg',
-    '/src/assets/images/Boston/DSCF33090.jpeg',
-    '/src/assets/images/Boston/Esta.jpeg',
-    '/src/assets/images/Boston/Fabrik.jpeg',
-    '/src/assets/images/Boston/Flower_Power.jpeg'
+    img911,
+    imgBay,
+    imgBridge,
+    imgCDS,
+    imgCDS2,
+    imgChurchTower,
+    imgCitgo,
+    imgCommAve,
+    imgDisco,
+    imgDSCF33090,
+    imgEsta,
+    imgFabrik,
+    imgFlowerPower
   ],
   col2: [
-    '/src/assets/images/Boston/Griego_2.jpeg',
-    '/src/assets/images/Boston/Iglesia.jpeg',
-    '/src/assets/images/Boston/Khan_2.jpeg',
-    '/src/assets/images/Boston/Khan.jpeg',
-    '/src/assets/images/Boston/Kimi.jpeg',
-    '/src/assets/images/Boston/Marro_3.jpeg',
-    '/src/assets/images/Boston/Marro.jpeg',
-    '/src/assets/images/Boston/Martina_2.jpeg',
-    '/src/assets/images/Boston/Mi_primera_chamba.jpeg',
-    '/src/assets/images/Boston/Mirror.jpeg',
-    '/src/assets/images/Boston/museo_1.jpeg',
-    '/src/assets/images/Boston/Friendship_2.jpeg'
+    imgGriego2,
+    imgIglesia,
+    imgKhan2,
+    imgKhan,
+    imgKimi,
+    imgMarro3,
+    imgMarro,
+    imgMartina2,
+    imgPrimeraChamba,
+    imgMirror,
+    imgMuseo1,
+    imgFriendship2
   ],
   col3: [
-    '/src/assets/images/Boston/Night_trip.jpeg',
-    '/src/assets/images/Boston/Panas.jpeg',
-    '/src/assets/images/Boston/Planta_1.jpeg',
-    '/src/assets/images/Boston/Prudential.jpeg',
-    '/src/assets/images/Boston/Prudi.jpeg',
-    '/src/assets/images/Boston/Realismo_magico.jpeg',
-    '/src/assets/images/Boston/Road.jpeg',
-    '/src/assets/images/Boston/Semi_2.jpeg',
-    '/src/assets/images/Boston/Skyline.jpeg',
-    '/src/assets/images/Boston/SMH.jpeg',
-    '/src/assets/images/Boston/Sunset.jpeg',
-    '/src/assets/images/Boston/Thomas.jpeg',
-    '/src/assets/images/Boston/Wallpaper.jpeg',
-    '/src/assets/images/Boston/museo_2.jpeg'
+    imgNightTrip,
+    imgPanas,
+    imgPlanta1,
+    imgPrudential,
+    imgPrudi,
+    imgRealismoMagico,
+    imgRoad,
+    imgSemi2,
+    imgSkyline,
+    imgSMH,
+    imgSunset,
+    imgThomas,
+    imgWallpaper,
+    imgMuseo2
   ]
 };
 
 export default function Boston() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState('');
-  // eslint-disable-next-line no-unused-vars
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Flatten the images array for lightbox navigation
@@ -132,6 +172,7 @@ export default function Boston() {
               src={src}
               alt={`Boston ${index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -143,6 +184,7 @@ export default function Boston() {
               src={src}
               alt={`Boston ${images.col1.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -154,6 +196,7 @@ export default function Boston() {
               src={src}
               alt={`Boston ${images.col1.length + images.col2.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>

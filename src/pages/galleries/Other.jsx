@@ -4,24 +4,38 @@ import Lightbox from '../../components/gallery/Lightbox';
 import styles from './Other.module.css';
 
 // Import all images
+import imgCocaCola from '@/assets/images/Other/Coca_Cola.jpeg';
+import imgKeepGoing from '@/assets/images/Other/Keep_Going.jpeg';
+import imgSevilla1 from '@/assets/images/Other/Sevilla_1.jpeg';
+import imgSevilla2 from '@/assets/images/Other/Sevilla_2.jpeg';
+import imgSevilla3 from '@/assets/images/Other/Sevilla_3.jpeg';
+import imgSevilla4 from '@/assets/images/Other/Sevilla_4.jpeg';
+import imgSevilla5 from '@/assets/images/Other/Sevilla_5.jpeg';
+import imgSevilla6 from '@/assets/images/Other/Sevilla_6.jpeg';
+import imgSevilla7 from '@/assets/images/Other/Sevilla_7.jpeg';
+import imgSevilla8 from '@/assets/images/Other/Sevilla_8.jpeg';
+import imgDSC0085 from '@/assets/images/Other/DSC_0085.jpg';
+import imgNightsky from '@/assets/images/Other/Nightsky.jpg';
+
+// Organize images into columns
 const images = {
   col1: [
-    '/src/assets/images/Other/Coca_Cola.jpeg',
-    '/src/assets/images/Other/Keep_Going.jpeg',
-    '/src/assets/images/Other/Sevilla_1.jpeg',
-    '/src/assets/images/Other/Sevilla_2.jpeg'
+    imgCocaCola,
+    imgKeepGoing,
+    imgSevilla1,
+    imgSevilla2
   ],
   col2: [
-    '/src/assets/images/Other/Sevilla_3.jpeg',
-    '/src/assets/images/Other/Sevilla_4.jpeg',
-    '/src/assets/images/Other/Sevilla_5.jpeg',
-    '/src/assets/images/Other/Sevilla_6.jpeg'
+    imgSevilla3,
+    imgSevilla4,
+    imgSevilla5,
+    imgSevilla6
   ],
   col3: [
-    '/src/assets/images/Other/Sevilla_7.jpeg',
-    '/src/assets/images/Other/Sevilla_8.jpeg',
-    '/src/assets/images/Other/DSC_0085.jpg',
-    '/src/assets/images/Other/Nightsky.jpg'
+    imgSevilla7,
+    imgSevilla8,
+    imgDSC0085,
+    imgNightsky
   ]
 };
 
@@ -89,7 +103,7 @@ export default function Other() {
         
         <div className={styles.quoteWrapper}>
           <p className={styles.quote}>
-            "Photography is the story I fail to put into words."
+            &quot;Photography is the story I fail to put into words.&quot;
             <span className={styles.author}>- Destin Sparks</span>
           </p>
         </div>
@@ -103,6 +117,7 @@ export default function Other() {
               src={src}
               alt={`Other ${index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -114,6 +129,7 @@ export default function Other() {
               src={src}
               alt={`Other ${images.col1.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -125,6 +141,7 @@ export default function Other() {
               src={src}
               alt={`Other ${images.col1.length + images.col2.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>

@@ -4,24 +4,36 @@ import Lightbox from '../../components/gallery/Lightbox';
 import styles from './Montmelo.module.css';
 
 // Import all images
+import imgF1_1 from '@/assets/images/Montmelo/F1_1.jpeg';
+import imgF1_2 from '@/assets/images/Montmelo/F1_2.jpeg';
+import imgF1_3 from '@/assets/images/Montmelo/F1_3.jpeg';
+import imgF1_4 from '@/assets/images/Montmelo/F1_4.jpeg';
+import imgF1_5 from '@/assets/images/Montmelo/F1_5.jpeg';
+import imgF1_6 from '@/assets/images/Montmelo/F1_6.jpeg';
+import imgF1_7 from '@/assets/images/Montmelo/F1_7.jpeg';
+import imgF1_8 from '@/assets/images/Montmelo/F1_8.jpeg';
+import imgF1_9 from '@/assets/images/Montmelo/F1_9.jpeg';
+import imgF1_10 from '@/assets/images/Montmelo/F1_10.jpeg';
+import imgF1_11 from '@/assets/images/Montmelo/F1_11.jpeg';
+
+// Organize images into columns
 const images = {
   col1: [
-    '/src/assets/images/Montmelo/F1_1.jpeg',
-    '/src/assets/images/Montmelo/F1_2.jpeg',
-    '/src/assets/images/Montmelo/F1_3.jpeg',
-    '/src/assets/images/Montmelo/F1_4.jpeg'
+    imgF1_1,
+    imgF1_2,
+    imgF1_3,
+    imgF1_4
   ],
   col2: [
-    '/src/assets/images/Montmelo/F1_5.jpeg',
-    '/src/assets/images/Montmelo/F1_6.jpeg',
-    '/src/assets/images/Montmelo/F1_7.jpeg',
-    
+    imgF1_5,
+    imgF1_6,
+    imgF1_7
   ],
   col3: [
-    '/src/assets/images/Montmelo/F1_9.jpeg',
-    '/src/assets/images/Montmelo/F1_10.jpeg',
-    '/src/assets/images/Montmelo/F1_11.jpeg',
-    '/src/assets/images/Montmelo/F1_8.jpeg'
+    imgF1_9,
+    imgF1_10,
+    imgF1_11,
+    imgF1_8
   ]
 };
 
@@ -89,8 +101,8 @@ export default function Montmelo() {
         
         <div className={styles.quoteWrapper}>
           <p className={styles.quote}>
-            "Formula 1 racing is like a symphony of speed, precision, and passion, 
-            where every millisecond counts and history is written in tire marks."
+            &quot;Formula 1 racing is like a symphony of speed, precision, and passion, 
+            where every millisecond counts and history is written in tire marks.&quot;
             <span className={styles.author}>- Circuit de Barcelona-Catalunya</span>
           </p>
         </div>
@@ -104,6 +116,7 @@ export default function Montmelo() {
               src={src}
               alt={`Montmelo ${index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -115,6 +128,7 @@ export default function Montmelo() {
               src={src}
               alt={`Montmelo ${images.col1.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
@@ -126,6 +140,7 @@ export default function Montmelo() {
               src={src}
               alt={`Montmelo ${images.col1.length + images.col2.length + index + 1}`}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>
