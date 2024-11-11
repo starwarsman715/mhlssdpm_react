@@ -7,18 +7,31 @@ export default function Lightbox({
   onClose, 
   currentImage, 
   onPrev, 
-  onNext }) {
+  onNext 
+}) {
   useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'ArrowLeft') {
+        onPrev();
+      } else if (e.key === 'ArrowRight') {
+        onNext();
+      } else if (e.key === 'Escape') {
+        onClose();
+      }
+    }
+
     if (isOpen) {
       document.body.classList.add('lightbox-active');
+      window.addEventListener('keydown', handleKeyDown);
     } else {
       document.body.classList.remove('lightbox-active');
     }
 
     return () => {
       document.body.classList.remove('lightbox-active');
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onPrev, onNext, onClose]);
 
   if (!isOpen) return null;
 
@@ -34,30 +47,33 @@ export default function Lightbox({
         alt="Gallery view" 
         className={styles.lightboxImage}
       />
-      <span 
+      <button 
         className={styles.prev} 
         onClick={(e) => {
           e.stopPropagation();
           onPrev();
         }}
+        aria-label="Previous Image"
       >
         <i className="fas fa-chevron-left" />
-      </span>
-      <span 
+      </button>
+      <button 
         className={styles.next}
         onClick={(e) => {
           e.stopPropagation();
           onNext();
         }}
+        aria-label="Next Image"
       >
         <i className="fas fa-chevron-right" />
-      </span>
-      <span 
+      </button>
+      <button 
         className={styles.close}
         onClick={onClose}
+        aria-label="Close Lightbox"
       >
-        ×
-      </span>
+        &times;
+      </button>
     </div>
   );
 }

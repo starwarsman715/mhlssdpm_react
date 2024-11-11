@@ -11,59 +11,55 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-.lightboxImage {
+  }
+  
+  .lightboxImage {
     max-width: 90%;
     max-height: 80%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.prev,
-.next {
+  }
+  
+  .prev,
+  .next,
+  .close {
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    width: auto;
-    padding-left: 100px;
-    padding-right: 100px;
-    margin-top: -22px;
-    font-weight: bold;
-    font-size: 50px;
-    transition: 0.3s;
-    user-select: none;
-    border-radius: 50%;
+    background: none;
+    border: none;
     color: #333;
-}
-
-.next {
-    right: 10px;
-}
-
-.prev {
-    left: 10px;
-}
-
-.close {
-    position: absolute;
+    font-size: 50px;
+    font-weight: lighter;
+    transition: color 0.3s;
+    user-select: none;
+  }
+  
+  .prev {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  
+  .next {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  
+  .close {
     top: 20px;
     right: 40px;
-    font-size: 50px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    color: #333;
-}
-
-.close:hover,
-.prev:hover,
-.next:hover {
+  }
+  
+  .prev:hover,
+  .next:hover,
+  .close:hover {
     color: #272727;
-}
-
-/* Font Awesome icon styles */
-.prev i, 
-.next i {
+  }
+  
+  /* Font Awesome icon styles */
+  .prev i, 
+  .next i {
     font-size: 30px;
     color: inherit;
-}
+  }
+  
